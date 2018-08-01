@@ -8,30 +8,40 @@ namespace Bonus16
     {
         static void Main(string[] args)
         {
+            Car1 c1 = new Car1("Chevy", "Equanox", "2015", 20000);
             Console.WriteLine("How many cars would you like to enter?");
             int size = int.Parse(Console.ReadLine());
 
             List<Cars> cars = new List<Cars>();
+
+            Cars.Add(new Cars() { MAKE = "Chevy", MODEL = "Equanox", YEAR = "2000", PRICE = 2599 });
+            Cars.Add(new Cars() { MAKE = "Ford", MODEL = "Edge", YEAR = "2020", PRICE = 2599 });
+            Cars.Add(new Cars() { MAKE = "GM", MODEL = "Terrain", YEAR = "1998", PRICE = 2599 });
+           UsedCar.Add(new UsedCar() { MAKE = "Plymouth", MODEL = "Acclaim", YEAR = "1934", PRICE = 2599, MILEAGE = 343000});
+            UsedCar.Add(new UsedCar() { MAKE = "Jeep", MODEL = "Wrangler", YEAR = "1994", PRICE = 2599, MILEAGE = 145000 });
+            UsedCar.Add(new UsedCar() { MAKE = "Saturn", MODEL = "SL1", YEAR = "1999", PRICE = 2599, MILEAGE = 237000 });
             // used to add new cars to the list
 
             while (true)
             #region User Input Car Info
             {
-                Cars temp = new Cars();
+                //Cars temp = new Cars();
                 Console.WriteLine("Please provide the make");
-                temp.MAKE = Console.ReadLine();
+                string MAKE = Console.ReadLine();
 
 
                 Console.WriteLine("Please provide the car model");
-                temp.MODEL = Console.ReadLine();
+                string MODEL = Console.ReadLine();
 
 
                 Console.WriteLine("Please provide car year");
-                temp.YEAR = int.Parse(Console.ReadLine());
+                string YEAR = (Console.ReadLine());
 
 
                 Console.WriteLine("Please provide the MSRP");
-                temp.PRICE = int.Parse(Console.ReadLine());
+                int PRICE = int.Parse(Console.ReadLine());
+
+                Cars temp = new Cars (MAKE, MODEL, YEAR, PRICE);  ////practice this ***************************
 
                 cars.Add(temp); // add the temp object to cars list
 
@@ -49,7 +59,7 @@ namespace Bonus16
                 Console.WriteLine("Make: " + c.MAKE);
                 Console.WriteLine("Model: " + c.MODEL);
                 Console.WriteLine("Year: " + c.YEAR);
-                Console.WriteLine("Price: " + c.PRICE);
+                Console.WriteLine("Price:" + c.PRICE);
                 Console.WriteLine("========================");
             }
             #endregion

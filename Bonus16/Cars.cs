@@ -10,7 +10,7 @@ namespace Bonus16
         #region Publics
         private string make;
             private string model;
-            private int year;
+            private string year;
             private double price;
                           
             public string MAKE
@@ -19,24 +19,24 @@ namespace Bonus16
                 get { return make; }              
             }
 
-            public string MODEL
+        internal static void Add(Cars cars)
+
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+
+        public string MODEL
             {
                 set { model = value; }  
                 get { return model; }
             }
 
-            public int YEAR
+            public string YEAR
             {
-                set {
-                if (!Regex.IsMatch(value.ToString(), @"^\d{4}$"))
-                {
-                    throw new Exception("Year is not a valid year!");
-                }
-                else
-                {
-                    year = value; 
-                }
-            }
+                set { year = value;  }
                 get { return year; }
                 
         }
@@ -47,5 +47,30 @@ namespace Bonus16
                 get { return price; }
             }
         #endregion
+
+        //constructor to set default values to NA and zero
+
+        public Cars()
+        {
+            MAKE = "not assigned";
+            MODEL = "not assigned";
+            YEAR = "NA";
+            PRICE = 0;
+
+        }
+
+        public Cars(string ma, string mo, string ye, double pr)
+        {
+            MAKE = ma;
+            MODEL = mo;
+            YEAR = ye;
+            PRICE = pr;
+        }
+        public virtual void PrintInfo()
+        {
+            Console.WriteLine($"Make: {MAKE}, Model: {MODEL}, Year: {YEAR}, Price:${PRICE}" );
+        }
+
+        
     }
 }
